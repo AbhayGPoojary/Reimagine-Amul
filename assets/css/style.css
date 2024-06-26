@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all 0.3s linear;
+}
+
+body
+{
+    font-family: 'Poppins', sans-serif;
+}
+
+a
+{
+    list-style: none;
+}
+
+li
+{
+    text-decoration: none;
+}
+
+section
+{
+    padding: 4rem 9%;
+}
+
+section.navbar
+{
+    padding: 2rem 5%;
+    
+    background: #000080;
+    /* background: linear-gradient(180deg,rgb(133, 41, 41),rgb(219, 28, 28)); */
+    
+}
+
+
+.navbar .menu-bar
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.navbar.fixed .menu-bar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    padding: 1rem 5%;
+    z-index: 999;
+}
+
+ul.menu
+{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+ul.menu li
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+ul.menu li a
+{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+ul.menu li a:hover
+{
+    color: rgb(0, 255, 191);
+}
+
+ul.menu li i
+{
+    color: #ffffff;
+}
+
+ul.menu li a:hover
+{
+    color: #ffffff;
+}
+
+.dropdown-menu
+{
+    display: none;
+}
+
+ul.menu li:hover .dropdown-menu
+{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #ffffff;
+    padding-top: 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.dropdown-menu ul
+{
+    display: block;
+    margin: 10px;
+}
+
+.dropdown-menu ul li
+{
+    width: 150px;
+    padding: 10px;
+}
+
+.dropdown-menu ul li:hover
+{
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.dropdown-menu ul li a
+{
+    color: #007bff;
+}
+
+.dropdown-menu ul li:hover a
+{
+    color: #ffffff;
+    width: 100%;
+}
+
+.menu-bar .logo img
+{
+    width: 150px;
+    display: flex;
+    cursor: pointer;
+}
+
+.menu-bar .search i
+{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Search Box */
+.navbar .menu-bar .search
+{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+.navbar .menu-bar .input-search
+{
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all 0.5s ease-in-out;
+    background-color: #0094cf;
+    padding-right: 40px;
+    color: #fff;
+}
+
+.navbar .menu-bar .input-search::placeholder
+{
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.navbar .menu-bar .btn-search
+{
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    background-color: transparent;
+    pointer-events: painted;
+}
+
+.navbar .menu-bar .btn-search:focus ~ .input-search
+{
+    width: 300px;
+    border-radius: 30px;
+    background-color: #0303ff;
+    transition: all 500ms cubic-bezier(0,0.110,0.35,2);
+}
+
+.navbar .menu-bar .input-search:focus
+{
+    width: 300px;
+    border-radius: 30px;
+    background-color: #0303ff;
+    transition: all 500ms cubic-bezier(0,0.110,0.35,2);
+}
+/* END */
+
+.menu-bar .call a
+{
+    background-color: #0094cf;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Mobile Menu */
+.nav-top
+    {
+     display: none;
+     align-items: center;
+     z-index: 101;
+    }
+  .nav-top .hamburger
+  {
+    margin-left: auto;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .nav-top .hamburger i
+  {
+    font-size: 2rem;
+  }
+  
+  .nav-drill
+  {
+    visibility: hidden;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: #154171;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    transition: 0.45s;
+  }
+
+  .nav-is-toggled .nav-drill
+  {
+    visibility: visible;
+    width: 300px;
+    transform: translateX(0);
+  }
+  .nav-is-toggled::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-items
+  {
+    top: 100px;
+    position: relative;
+    list-style: none;
+    width: 100%;
+  }
+  .nav-item:not(:last-child) {
+    border-bottom: solid 1px #daf9f4;
+  }
+  .nav-link {
+    display: block;
+    padding: 0.875em 1em;
+    background-color: #154171;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5em;
+    font-weight: 300;
+  }
+  .nav-expand-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+    background-color: #157BBD;
+    transition: 0.3s;
+    visibility: hidden;
+  }
+  .nav-expand-content .nav-item:not(:last-child)
+  {
+    border-bottom: solid 1px #fff;
+  }
+  .nav-expand-content .nav-link {
+    background-color: #157BBD;
+  }
+  .nav-expand-content .nav-back-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #157BBD !important;
+    color: #fff;
+  }
+  .nav-expand-content .nav-back-link::before {
+    content: "Back";
+    margin-right: 0.5em;
+  }
+  .nav-expand-link {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-expand.active > .nav-expand-content {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  .nav-expand .nav-expand-content {
+    background-color: #157BBD;
+  }
+/* End */
+
+.menu-bar .call a:hover
+{
+    background-color: #0303ff;
+    border: 1px solid #fff;
+}
+
+.main
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #0094cf;
+    
+    
+}
+
+.main .des
+{
+    width: 50%;
+}
+
+.main .content .background
+{
+    background-color: #87CEEB;
+    border-radius: 100%;
+    width: 500px;
+    height: 500px;
+    top: -40px;
+    position: relative;
+}
+
+.main .content .image
+{
+    background-image: url(../image/milk-splash-isolated-on-black-background-JW8ZPTS.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: contain;
+    width: 120%;
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+}
+
+.main .content .image img
+{
+    width: 400px;
+    transform: rotate(-10deg);
+    z-index: 2;
+    height: 100%;
+    position: relative;
+    left: -70px;
+}
+
+.main .content .image img:nth-child(2)
+{
+    width: 400px;
+    transform: rotate(10deg);
+    z-index: 1;
+    height: 100%;
+    left: -200px;
+    
+    position: relative;
+}
+
+.main .content .background .icons
+{
+    width: 300px;
+}
+
+.main .content .background .icons .box
+{
+    backdrop-filter: blur(20px);
+    text-align: left;
+    background-color: #FFFFFF3D;
+    padding: 15px 25px;
+    box-shadow: 0px 0px 10px 0px rgba(34.999999999999986, 39.99999999999992, 148, 0.1);
+    border-style: solid;
+    border-width: 1px 1px 0px 0px;
+    border-color: #FFFFFF36;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.main .content .background .icons .box:nth-child(1)
+{
+    position: absolute;
+    top: 250px;
+    left: -50px;
+    z-index: 3;
+}
+
+.main .content .background .icons .box:nth-child(2)
+{
+    position: absolute;
+    bottom: 60px;
+    right: 0px;
+    z-index: 3;
+}
+
+.main .content .background .icons .box .icon i
+{
+    color: #157BBD;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}
+
+.main .content .background .icons .box .text h2
+{
+    color: #000080;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.main .content .background .icons .box .text p
+{
+    color: #ff4394;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.main .content
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .content .des h3
+{
+    color: #ffffff;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.main .content .des h2
+{
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.main .content .des h1
+{
+    color: #ffffff;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+@keyframes title-shaking
+{
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .title-shaking {
+    display: inline-block;  
+    animation: title-shaking 0.3s infinite;
+  }
+  
+
+.main .content .des p
+{
+    color: #E0FFFF;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding-bottom: 2rem;
+}
+
+.main .content .btn
+{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.main .content .btn.ripple i
+{
+    background-color: #fff;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    animation: ripple 2s linear infinite;
+  }
+  @keyframes ripple {
+    0% {
+      box-shadow: 0 0 0 .2rem rgba(255, 255, 255, 0.068),
+                  0 0 0 0.5rem rgba(255, 255, 255, 0.068),
+                  0 0 0 0.9rem rgba(255, 255, 255, 0.068);
+    }
+    100% {
+      box-shadow: 0 0 0 .2rem rgba(255, 255, 255, 0.068),
+                  0 0 0 1rem rgba(255, 255, 255, 0.068),
+                  0 0 0 2rem rgba(255,255,255, 0);
+    }
+  }
+
+.main .content .btn i
+{
+    color: #154171;
+    font-size: 3rem;
+    padding: 4px;
+    box-shadow: 0px 0px 10px #cecece;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main .content .btn i:hover
+{
+    color: #ff4394;
+    background-color: #ffffff;
+}
+
+.main .content .btn a
+{
+    background-color: #000080;
+    padding: 15px 40px;
+    color: #ffffff;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+.main .content .btn a:hover
+{
+    background-color: #0202ff;
+}
+
+.main .content .btn a:nth-child(3)
+{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+
+/*======= Section About =======*/
